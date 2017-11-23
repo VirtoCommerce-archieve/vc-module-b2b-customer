@@ -1,0 +1,38 @@
+﻿{
+    "customer": {
+        "blades": {
+            "contact-detail": {
+                "title-new": "New Company Member",
+                "subtitle": "Company Member details",
+                "labels": {
+                    "organizations": "Company"
+                },
+                "placeholders": {
+                    "organizations": "Select Company"
+                }
+            },
+            "organization-detail": {
+                "title-new": "New Company",
+                "subtitle": "Company details",
+                "labels": {
+                }
+            },
+            "member-add": {
+                "organization": {
+                    "description": "A container for other Companies and Company Members."
+                },
+                "contact": {
+                    "description": "The Company Member. Can belong to Organizations or represent an individual shopper."
+                }
+            },
+            "member-list": {
+                "title": "Contacts"
+            }
+        },
+        "dialogs": {
+            "members-delete": {
+                "message": "Are you sure you want to delete selected Companies or Contacts?"
+            }
+        }
+    }
+}
