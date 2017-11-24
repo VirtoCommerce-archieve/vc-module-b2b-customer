@@ -4,13 +4,13 @@ using System.Linq;
 using System.Web.Http.ModelBinding;
 using FluentValidation;
 using FluentValidation.Results;
-using VirtoCommerce.B2BExtensionsModule.Web.Model.Search;
-using VirtoCommerce.B2BExtensionsModule.Web.Resources;
+using VirtoCommerce.B2BCustomerModule.Core;
+using VirtoCommerce.B2BCustomerModule.Core.Resources;
 using VirtoCommerce.Domain.Customer.Services;
 using VirtoCommerce.Domain.Store.Services;
 using VirtoCommerce.Platform.Core.Security;
 
-namespace VirtoCommerce.B2BExtensionsModule.Web.Model.Extensions
+namespace VirtoCommerce.B2BCustomerModule.Web.Model.Extensions
 {
     [CLSCompliant(false)]
     public static class ValidationExtensions

@@ -1,0 +1,26 @@
+﻿using System;
+using FluentValidation;
+using VirtoCommerce.B2BCustomerModule.Core.Resources;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Extensions;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Security;
+using VirtoCommerce.Domain.Customer.Services;
+using VirtoCommerce.Domain.Store.Services;
+
+namespace VirtoCommerce.B2BCustomerModule.Web.Services.Validation
+{
+    [CLSCompliant(false)]
+    public class InviteDataValidator : AbstractValidator<InviteData>
+    {
+        public InviteDataValidator(IStoreService storeService, IMemberService memberService)
+        {
+            CascadeMode = CascadeMode.StopOnFirstFailure;
+            RuleFor(x => x.StoreId).NotEmpty().StoreExist(storeService);
+            RuleFor(x => x.CompanyId).NotEmpty().CompanyExist(memberService);
+            RuleFor(x => x.Emails).NotEmpty().WithMessage(B2BCustomerResources.EmailsIsNullOrEmpty);
+            RuleForEach(x => x.Emails).EmailAddress().WithMessage(B2BCustomerResources.EmailsIsNotValid);
+            RuleFor(x => x.AdminName).NotEmpty();
+            RuleFor(x => x.AdminEmail).EmailAddress().WithMessage(B2BCustomerResources.AdminEmailIsNotValid);
+            RuleFor(x => x.CallbackUrl).NotEmpty();
+        }
+    }
+}

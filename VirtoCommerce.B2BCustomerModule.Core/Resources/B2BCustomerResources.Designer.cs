@@ -22,7 +22,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class B2BCustomerResources {
+    public class B2BCustomerResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("VirtoCommerce.B2BCustomerModule.Core.Resources.B2BCustomerResources", typeof(B2BCustomerResources).Assembly);
@@ -51,7 +51,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Contact adminisrator&apos;s email is not valid..
         /// </summary>
-        internal static string AdminEmailIsNotValid {
+        public static string AdminEmailIsNotValid {
             get {
                 return ResourceManager.GetString("AdminEmailIsNotValid", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Company {0} already exist..
         /// </summary>
-        internal static string CompanyAlreadyExist {
+        public static string CompanyAlreadyExist {
             get {
                 return ResourceManager.GetString("CompanyAlreadyExist", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Company {0} does not exist..
         /// </summary>
-        internal static string CompanyDoesNotExist {
+        public static string CompanyDoesNotExist {
             get {
                 return ResourceManager.GetString("CompanyDoesNotExist", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User with email {0} already registered..
         /// </summary>
-        internal static string EmailAlreadyUsed {
+        public static string EmailAlreadyUsed {
             get {
                 return ResourceManager.GetString("EmailAlreadyUsed", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specified emails is invalid..
         /// </summary>
-        internal static string EmailsIsNotValid {
+        public static string EmailsIsNotValid {
             get {
                 return ResourceManager.GetString("EmailsIsNotValid", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must specify emails for which invitation will be send..
         /// </summary>
-        internal static string EmailsIsNullOrEmpty {
+        public static string EmailsIsNullOrEmpty {
             get {
                 return ResourceManager.GetString("EmailsIsNullOrEmpty", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must specify an existing company and the only one..
         /// </summary>
-        internal static string InvalidCompanyCount {
+        public static string InvalidCompanyCount {
             get {
                 return ResourceManager.GetString("InvalidCompanyCount", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must specify an unique email and the only one..
         /// </summary>
-        internal static string InvalidEmailCount {
+        public static string InvalidEmailCount {
             get {
                 return ResourceManager.GetString("InvalidEmailCount", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Your invite is revoked or invalid..
         /// </summary>
-        internal static string InvalidInvite {
+        public static string InvalidInvite {
             get {
                 return ResourceManager.GetString("InvalidInvite", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You already registered by this invite..
         /// </summary>
-        internal static string InviteAlreadyUsed {
+        public static string InviteAlreadyUsed {
             get {
                 return ResourceManager.GetString("InviteAlreadyUsed", resourceCulture);
             }
@@ -157,7 +157,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         ///&lt;p&gt;If you are unable to click on the link above, simple copy the link and paste into the browser where you enter web addresses and press enter.&lt;br&gt;
         ///If you have any questions, please contact your company&apos;s account administrator, {{admin_name}} at {{admin_email}}.&lt;/p&gt;.
         /// </summary>
-        internal static string InviteEmailNotificationBody {
+        public static string InviteEmailNotificationBody {
             get {
                 return ResourceManager.GetString("InviteEmailNotificationBody", resourceCulture);
             }
@@ -166,7 +166,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Invitation to join {{company_name}}..
         /// </summary>
-        internal static string InviteEmailNotificationSubject {
+        public static string InviteEmailNotificationSubject {
             get {
                 return ResourceManager.GetString("InviteEmailNotificationSubject", resourceCulture);
             }
@@ -175,7 +175,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You selected &lt;a href={{ product_url }}&gt;{{ product.name }}&lt;a/&gt;  from {{ store_name}} to send to this email..
         /// </summary>
-        internal static string ProductEmailNotificationBody {
+        public static string ProductEmailNotificationBody {
             get {
                 return ResourceManager.GetString("ProductEmailNotificationBody", resourceCulture);
             }
@@ -184,7 +184,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to {{ store_name }}: {{ product.name }}.
         /// </summary>
-        internal static string ProductEmailNotificationSubject {
+        public static string ProductEmailNotificationSubject {
             get {
                 return ResourceManager.GetString("ProductEmailNotificationSubject", resourceCulture);
             }
@@ -193,7 +193,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Store {0} does not exists.
         /// </summary>
-        internal static string StoreDoesNotExist {
+        public static string StoreDoesNotExist {
             get {
                 return ResourceManager.GetString("StoreDoesNotExist", resourceCulture);
             }
@@ -202,7 +202,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User {0} already registered..
         /// </summary>
-        internal static string UserAlreadyExist {
+        public static string UserAlreadyExist {
             get {
                 return ResourceManager.GetString("UserAlreadyExist", resourceCulture);
             }
@@ -211,7 +211,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to with id {0}.
         /// </summary>
-        internal static string WithId {
+        public static string WithId {
             get {
                 return ResourceManager.GetString("WithId", resourceCulture);
             }

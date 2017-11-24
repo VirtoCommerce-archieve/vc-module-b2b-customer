@@ -11,6 +11,6 @@
         public const string ModuleEmployeeRole = "Employee";
         public const string ModuleEmployeeRoleDescription = "Role of the employee for corporate module";
 
-        internal const string PropertyValue = "{PropertyValue}";
+        public const string PropertyValue = "{PropertyValue}";
     }
 }

@@ -11,6 +11,7 @@ using VirtoCommerce.B2BCustomerModule.Data.Migrations;
 using VirtoCommerce.B2BCustomerModule.Data.Model;
 using VirtoCommerce.B2BCustomerModule.Data.Repositories;
 using VirtoCommerce.B2BCustomerModule.Data.Services;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Security;
 using VirtoCommerce.B2BCustomerModule.Web.Security;
 using VirtoCommerce.CustomerModule.Data.Model;
 using VirtoCommerce.CustomerModule.Data.Repositories;
@@ -60,6 +61,8 @@ namespace VirtoCommerce.B2BCustomerModule.Web
             // https://stackoverflow.com/questions/25185272/how-can-i-automatically-register-all-my-fluent-validators-with-unity
             _container.RegisterType<IValidatorFactory, ValidatorFactory>(new ContainerControlledLifetimeManager());
             var validators = AssemblyScanner.FindValidatorsInAssemblyContaining<InviteValidator>();
+            validators.ForEach(validator => _container.RegisterType(validator.InterfaceType, validator.ValidatorType, new ContainerControlledLifetimeManager()));
+            validators = AssemblyScanner.FindValidatorsInAssemblyContaining<CompanyOwnerRegistrationData>();
             validators.ForEach(validator => _container.RegisterType(validator.InterfaceType, validator.ValidatorType, new ContainerControlledLifetimeManager()));
         }
 

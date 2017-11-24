@@ -120,11 +120,15 @@
     <Reference Include="VirtoCommerce.Platform.Core, Version=2.13.14.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VirtoCommerce.Platform.Core.2.13.14\lib\net461\VirtoCommerce.Platform.Core.dll</HintPath>
     </Reference>
+    <Reference Include="VirtoCommerce.Platform.Core.Web, Version=2.13.14.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VirtoCommerce.Platform.Core.Web.2.13.14\lib\net461\VirtoCommerce.Platform.Core.Web.dll</HintPath>
+    </Reference>
     <Reference Include="VirtoCommerce.Platform.Data, Version=2.13.9.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VirtoCommerce.Platform.Data.2.13.9\lib\net461\VirtoCommerce.Platform.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\logo.png" />
     <Content Include="Localizations\en.VirtoCommerce.b2bCustomer.json" />
     <None Include="module.ignore" />
     <None Include="packages.config" />
@@ -145,14 +149,27 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Controllers\Api\CorporateControllerBase.cs" />
+    <Compile Include="Controllers\Api\CorporateRegisterController.cs" />
+    <Compile Include="Extensions\ValidationExtensions.cs" />
+    <Compile Include="Model\Security\CompanyMemberRegistrationByInviteData.cs" />
+    <Compile Include="Model\Security\CompanyMemberRegistrationData.cs" />
+    <Compile Include="Model\Security\CompanyMemberRegistrationDataBase.cs" />
+    <Compile Include="Model\Security\CompanyOwnerRegistrationData.cs" />
+    <Compile Include="Model\Security\InviteData.cs" />
+    <Compile Include="Model\Security\RegistrationDataBase.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\B2BPredefinedPermissions.cs" />
+    <Compile Include="Services\Validation\CompanyMemberRegistrationByInviteDataValidator.cs" />
+    <Compile Include="Services\Validation\CompanyMemberRegistrationDataBaseValidator.cs" />
+    <Compile Include="Services\Validation\CompanyMemberRegistrationDataValidator.cs" />
+    <Compile Include="Services\Validation\CompanyOwnerRegistrationDataValidator.cs" />
+    <Compile Include="Services\Validation\InviteDataValidator.cs" />
+    <Compile Include="Services\Validation\RegistrationDataBaseValidator.cs" />
     <Compile Include="ValidatorFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\" />
-    <Folder Include="Controllers\Api\" />
     <Folder Include="Scripts\blades\" />
     <Folder Include="Scripts\resources\" />
   </ItemGroup>
