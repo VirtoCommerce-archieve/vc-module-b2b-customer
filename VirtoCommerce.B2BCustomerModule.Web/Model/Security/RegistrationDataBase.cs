@@ -1,4 +1,5 @@
 ﻿using VirtoCommerce.B2BCustomerModule.Core.Model;
+using VirtoCommerce.Domain.Commerce.Model;
 using VirtoCommerce.Platform.Core.Security;
 
 namespace VirtoCommerce.B2BCustomerModule.Web.Model.Security
@@ -17,11 +18,15 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Model.Security
 
         public string Email { get; set; }
 
+        public Address Address { get; set; }
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
 
         public bool IsActive { get; set; }
+
+        public string RecaptchaResponse { get; set; }
 
         public virtual ApplicationUserExtended ToApplicationUserExtended()
         {
@@ -46,6 +51,8 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Model.Security
             companyMember.IsActive = IsActive;
             companyMember.Title = Title;
             companyMember.Emails = new[] { Email };
+            companyMember.Addresses = new[] { Address };
+            companyMember.Phones = new[] { Address.Phone };
             return companyMember;
         }
     }

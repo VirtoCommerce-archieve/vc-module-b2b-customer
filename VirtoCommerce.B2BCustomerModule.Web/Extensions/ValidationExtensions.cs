@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Http.ModelBinding;
 using FluentValidation;
 using FluentValidation.Results;
@@ -9,12 +10,25 @@ using VirtoCommerce.B2BCustomerModule.Core.Resources;
 using VirtoCommerce.Domain.Customer.Services;
 using VirtoCommerce.Domain.Store.Services;
 using VirtoCommerce.Platform.Core.Security;
+using VirtoCommerce.Platform.Core.Settings;
 
 namespace VirtoCommerce.B2BCustomerModule.Web.Model.Extensions
 {
     [CLSCompliant(false)]
     public static class ValidationExtensions
     {
+        public static void RecaptchaValid<T>(this IRuleBuilderOptions<T, string> rule, ISettingsManager settingsManager)
+        {
+            var reCaptchaSecret = settingsManager.GetValue("B2BCustomer.reCAPTCHA.secret", default(string));
+
+            rule.Must(x =>
+            {
+                var vv = new ReCaptchaValidator(reCaptchaSecret);
+                return vv.ValidateCaptcha(x, HttpContext.Current.Request);
+            })
+                .WithMessage(B2BCustomerResources.ReCaptchaValidationFailed);
+        }
+
         public static void StoreExist<T>(this IRuleBuilderOptions<T, string> rule, IStoreService storeService)
         {
             rule.Must(x => storeService.GetById(x) != null)
@@ -23,7 +37,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Model.Extensions
 
         public static void CompanyExist<T>(this IRuleBuilderOptions<T, string> rule, IMemberService memberService)
         {
-            rule.Must(x => memberService.GetByIds(new [] { x }).Any())
+            rule.Must(x => memberService.GetByIds(new[] { x }).Any())
                 .WithMessage(string.Format(B2BCustomerResources.CompanyDoesNotExist, Constants.PropertyValue));
         }
 

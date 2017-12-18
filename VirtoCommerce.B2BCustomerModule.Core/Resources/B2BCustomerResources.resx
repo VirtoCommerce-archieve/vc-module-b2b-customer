@@ -121,7 +121,7 @@
     <value>Contact adminisrator's email is not valid.</value>
   </data>
   <data name="CompanyAlreadyExist" xml:space="preserve">
-    <value>Company {0} already exist.</value>
+    <value>Company {0} already exists.</value>
   </data>
   <data name="CompanyDoesNotExist" xml:space="preserve">
     <value>Company {0} does not exist.</value>
@@ -130,7 +130,7 @@
     <value>User with email {0} already registered.</value>
   </data>
   <data name="EmailsIsNotValid" xml:space="preserve">
-    <value>Specified emails is invalid.</value>
+    <value>Specified email is invalid.</value>
   </data>
   <data name="EmailsIsNullOrEmpty" xml:space="preserve">
     <value>You must specify emails for which invitation will be send.</value>
@@ -145,7 +145,7 @@
     <value>Your invite is revoked or invalid.</value>
   </data>
   <data name="InviteAlreadyUsed" xml:space="preserve">
-    <value>You already registered by this invite.</value>
+    <value>You've registered by this invite already.</value>
   </data>
   <data name="InviteEmailNotificationBody" xml:space="preserve">
     <value>{{message}}&lt;br&gt;
@@ -163,8 +163,11 @@ If you have any questions, please contact your company's account administrator, 
   <data name="ProductEmailNotificationSubject" xml:space="preserve">
     <value>{{ store_name }}: {{ product.name }}</value>
   </data>
+  <data name="ReCaptchaValidationFailed" xml:space="preserve">
+    <value>reCAPTCHA validation failed</value>
+  </data>
   <data name="StoreDoesNotExist" xml:space="preserve">
-    <value>Store {0} does not exists</value>
+    <value>Store {0} does not exist.</value>
   </data>
   <data name="UserAlreadyExist" xml:space="preserve">
     <value>User {0} already registered.</value>

@@ -34,6 +34,18 @@
         <directory virtualPath="$/Scripts" searchPattern="*.js" searchSubdirectories="true" />
     </scripts>
 
+    <settings>
+        <group name="B2BCustomer|General">
+            <setting>
+                <name>B2BCustomer.reCAPTCHA.secret</name>
+                <valueType>string</valueType>
+                <defaultValue></defaultValue>
+                <title>reCAPTCHA secret</title>
+                <description>The shared key between your site and reCAPTCHA. Get it from recaptcha site</description>
+            </setting>
+        </group>
+    </settings>
+    
     <permissions>
         <group name="Business-to-Business">
             <permission id="storefront:companyInfo" name="View &amp; update company info" description=""/>

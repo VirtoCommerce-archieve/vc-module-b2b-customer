@@ -70,7 +70,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company {0} already exist..
+        ///   Looks up a localized string similar to Company {0} already exists..
         /// </summary>
         public static string CompanyAlreadyExist {
             get {
@@ -97,7 +97,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specified emails is invalid..
+        ///   Looks up a localized string similar to Specified email is invalid..
         /// </summary>
         public static string EmailsIsNotValid {
             get {
@@ -142,7 +142,7 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You already registered by this invite..
+        ///   Looks up a localized string similar to You&apos;ve registered by this invite already..
         /// </summary>
         public static string InviteAlreadyUsed {
             get {
@@ -191,7 +191,16 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Store {0} does not exists.
+        ///   Looks up a localized string similar to reCAPTCHA validation failed.
+        /// </summary>
+        public static string ReCaptchaValidationFailed {
+            get {
+                return ResourceManager.GetString("ReCaptchaValidationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Store {0} does not exist..
         /// </summary>
         public static string StoreDoesNotExist {
             get {
