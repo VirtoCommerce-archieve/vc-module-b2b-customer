@@ -32,6 +32,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
         private readonly IValidator<CompanyOwnerRegistrationData> _companyOwnerRegistrationDataValidator;
         private readonly IValidator<CompanyMemberRegistrationData> _companyMemberRegistrationDataValidator;
         private readonly IValidator<CompanyMemberRegistrationByInviteData> _companyMemberRegistrationByInviteDataValidator;
+        private readonly IValidator<PersonalCustomerRegistrationData> _personalCustomerRegistrationDataValidator;
 
         private readonly IValidator<Invite> _inviteValidator;
         private readonly IValidator<InviteData> _inviteDataValidator;
@@ -50,6 +51,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
             _companyOwnerRegistrationDataValidator = validatorFactory.GetValidator<CompanyOwnerRegistrationData>();
             _companyMemberRegistrationDataValidator = validatorFactory.GetValidator<CompanyMemberRegistrationData>();
             _companyMemberRegistrationByInviteDataValidator = validatorFactory.GetValidator<CompanyMemberRegistrationByInviteData>();
+            _personalCustomerRegistrationDataValidator = validatorFactory.GetValidator<PersonalCustomerRegistrationData>();
 
             _inviteValidator = validatorFactory.GetValidator<Invite>();
             _inviteDataValidator = validatorFactory.GetValidator<InviteData>();
@@ -199,6 +201,22 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
 
         //    return StatusCode(HttpStatusCode.NoContent);
         //}
+
+
+        // POST: api/b2b/registerPersonal
+        /// <summary>
+        /// Register Personal customer
+        /// </summary>
+        /// <param name="registrationData">Personal customer data</param>
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("registerPersonal")]
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> RegisterPersonalCustomer(PersonalCustomerRegistrationData registrationData)
+        {
+            return await RegisterAsync(_personalCustomerRegistrationDataValidator, registrationData, Constants.ModuleAdminRole, null, null,
+                user => registrationData.ToCompanyMember(new CompanyMember(), user.Id), null);
+        }
 
         private async Task<IHttpActionResult> RegisterAsync<T>(IValidator<T> validator, T registrationData, string roleName, Action<ApplicationUserExtended> prepareSecurity, Action prepare,
             Func<ApplicationUserExtended, CompanyMember> build, Action<CompanyMember> complete)
