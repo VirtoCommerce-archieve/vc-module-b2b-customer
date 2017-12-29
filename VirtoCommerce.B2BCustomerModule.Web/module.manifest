@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <module>
     <id>VirtoCommerce.B2BCustomer</id>
-    <version>0.1.0</version>
-    <platformVersion>2.13.9</platformVersion>
+    <version>1.0.0</version>
+    <platformVersion>2.13.19</platformVersion>
     <dependencies>
         <dependency id="VirtoCommerce.Core" version="2.24.1" />
         <dependency id="VirtoCommerce.Customer" version="2.14.1" />
     </dependencies>
 
-    <title>B2B Customer module</title>
+    <title>B2B Customer module (preview)</title>
     <description>Managing B2B functionality for corporate customers</description>
     <authors>
         <author>Aleksandr Vishnyakov</author>
@@ -34,6 +34,10 @@
         <directory virtualPath="$/Scripts" searchPattern="*.js" searchSubdirectories="true" />
     </scripts>
 
+    <incompatibilities>
+      <module id="VirtoCommerce.B2BExtension" version="1.0.0" />
+    </incompatibilities>
+  
     <settings>
         <group name="B2BCustomer|General">
             <setting>
