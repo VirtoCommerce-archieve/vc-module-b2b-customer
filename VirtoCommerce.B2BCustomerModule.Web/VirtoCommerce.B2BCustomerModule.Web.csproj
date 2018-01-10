@@ -157,6 +157,7 @@
     <Compile Include="Controllers\Api\CorporateControllerBase.cs" />
     <Compile Include="Controllers\Api\CorporateRegisterController.cs" />
     <Compile Include="Extensions\ValidationExtensions.cs" />
+    <Compile Include="Model\Notifications\CorporateInviteEmailNotification.cs" />
     <Compile Include="Model\Security\CompanyMemberRegistrationByInviteData.cs" />
     <Compile Include="Model\Security\CompanyMemberRegistrationData.cs" />
     <Compile Include="Model\Security\CompanyMemberRegistrationDataBase.cs" />

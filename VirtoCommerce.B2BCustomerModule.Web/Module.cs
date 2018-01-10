@@ -6,11 +6,13 @@ using Microsoft.Practices.Unity;
 using VirtoCommerce.B2BCustomerModule.Core;
 using VirtoCommerce.B2BCustomerModule.Core.Model;
 using VirtoCommerce.B2BCustomerModule.Core.Model.Search;
+using VirtoCommerce.B2BCustomerModule.Core.Resources;
 using VirtoCommerce.B2BCustomerModule.Core.Services.Validation;
 using VirtoCommerce.B2BCustomerModule.Data.Migrations;
 using VirtoCommerce.B2BCustomerModule.Data.Model;
 using VirtoCommerce.B2BCustomerModule.Data.Repositories;
 using VirtoCommerce.B2BCustomerModule.Data.Services;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Notifications;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Security;
 using VirtoCommerce.B2BCustomerModule.Web.Security;
 using VirtoCommerce.CustomerModule.Data.Model;
@@ -19,6 +21,7 @@ using VirtoCommerce.Domain.Customer.Model;
 using VirtoCommerce.Domain.Customer.Services;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
+using VirtoCommerce.Platform.Core.Notifications;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Data.Infrastructure;
 using VirtoCommerce.Platform.Data.Infrastructure.Interceptors;
@@ -82,6 +85,24 @@ namespace VirtoCommerce.B2BCustomerModule.Web
             base.PostInitialize();
 
             InitializeSecurity();
+            InitializeNotifications();
+        }
+
+        private void InitializeNotifications()
+        {
+
+            var notificationManager = _container.Resolve<INotificationManager>();
+            notificationManager.RegisterNotificationType(() => new CorporateInviteEmailNotification(_container.Resolve<IEmailNotificationSendingGateway>())
+            {
+                DisplayName = "Company member invite notification",
+                Description = "This notification sends to specified email when this email invited to register as company member.",
+                NotificationTemplate = new NotificationTemplate
+                {
+                    Subject = B2BCustomerResources.InviteEmailNotificationSubject,
+                    Body = B2BCustomerResources.InviteEmailNotificationBody,
+                    Language = "en-US"
+                }
+            });
         }
 
         private void InitializeSecurity()

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
 using FluentValidation;
@@ -9,11 +11,13 @@ using VirtoCommerce.B2BCustomerModule.Core;
 using VirtoCommerce.B2BCustomerModule.Core.Model;
 using VirtoCommerce.B2BCustomerModule.Core.Model.Security;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Extensions;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Notifications;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Security;
 using VirtoCommerce.B2BCustomerModule.Web.Security;
 using VirtoCommerce.Domain.Customer.Model;
 using VirtoCommerce.Domain.Customer.Services;
 using VirtoCommerce.Domain.Store.Services;
+using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Notifications;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Web.Security;
@@ -148,59 +152,59 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
         /// Create invite for specified emails
         /// </summary>
         /// <param name="inviteData">Data used to send invitation link to invited user</param>
-        //[HttpPost]
-        //[Route("invite")]
-        //[ResponseType(typeof(void))]
-        //[CheckPermission(Permission = B2BPredefinedPermissions.CompanyMembers)]
-        //public IHttpActionResult Invite(InviteData inviteData)
-        //{
-        //    var validationResult = _inviteDataValidator.Validate(inviteData);
-        //    if (!validationResult.IsValid)
-        //        return BadRequest(validationResult.Errors.BuildModelState());
+        [HttpPost]
+        [Route("invite")]
+        [ResponseType(typeof(void))]
+        [CheckPermission(Permission = B2BPredefinedPermissions.CompanyMembers)]
+        public IHttpActionResult Invite(InviteData inviteData)
+        {
+            var validationResult = _inviteDataValidator.Validate(inviteData);
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors.BuildModelState());
 
-        //    var store = _storeService.GetById(inviteData.StoreId);
-        //    var company = _memberService.GetByIds(new[] { inviteData.CompanyId }).First();
+            var store = _storeService.GetById(inviteData.StoreId);
+            var company = _memberService.GetByIds(new[] { inviteData.CompanyId }).First();
 
-        //    inviteData.Emails.ProcessWithPaging(50, (currentEmails, currentCount, totalCount) =>
-        //    {
-        //        var companyMembers = currentEmails.Select(email => new CompanyMember
-        //        {
-        //            FullName = email,
-        //            Emails = new[] { email },
-        //            Organizations = new[] { inviteData.CompanyId },
-        //            IsActive = false
-        //        }).ToArray();
-        //        _memberService.SaveChanges(companyMembers.Cast<Member>().ToArray());
+            inviteData.Emails.ProcessWithPaging(50, (currentEmails, currentCount, totalCount) =>
+            {
+                var companyMembers = currentEmails.Select(email => new CompanyMember
+                {
+                    FullName = email,
+                    Emails = new[] { email },
+                    Organizations = new[] { inviteData.CompanyId },
+                    IsActive = false
+                }).ToArray();
+                _memberService.SaveChanges(companyMembers.Cast<Member>().ToArray());
 
-        //        foreach (var companyMember in companyMembers)
-        //        {
-        //            var token = companyMember.Id;
+                foreach (var companyMember in companyMembers)
+                {
+                    var token = companyMember.Id;
 
-        //            var uriBuilder = new UriBuilder(inviteData.CallbackUrl);
-        //            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
-        //            query["invite"] = token;
-        //            uriBuilder.Query = query.ToString();
+                    var uriBuilder = new UriBuilder(inviteData.CallbackUrl);
+                    var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+                    query["invite"] = token;
+                    uriBuilder.Query = query.ToString();
 
-        //            var notification = _notificationManager.GetNewNotification<CorporateInviteEmailNotification>(inviteData.StoreId, "Store", inviteData.Language);
-        //            notification.Url = uriBuilder.ToString();
-        //            notification.CompanyName = company.Name;
-        //            notification.Message = inviteData.Message;
+                    var notification = _notificationManager.GetNewNotification<CorporateInviteEmailNotification>(inviteData.StoreId, "Store", inviteData.Language);
+                    notification.Url = uriBuilder.ToString();
+                    notification.CompanyName = company.Name;
+                    notification.Message = inviteData.Message;
 
-        //            notification.StoreName = store.Name;
-        //            notification.Sender = store.Email;
-        //            notification.IsActive = true;
+                    notification.StoreName = store.Name;
+                    notification.Sender = store.Email;
+                    notification.IsActive = true;
 
-        //            notification.AdminName = inviteData.AdminName;
-        //            notification.AdminEmail = inviteData.AdminEmail;
+                    notification.AdminName = inviteData.AdminName;
+                    notification.AdminEmail = inviteData.AdminEmail;
 
-        //            notification.Recipient = companyMember.Emails.Single();
+                    notification.Recipient = companyMember.Emails.Single();
 
-        //            _notificationManager.ScheduleSendNotification(notification);
-        //        }
-        //    });
+                    _notificationManager.ScheduleSendNotification(notification);
+                }
+            });
 
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
 
         // POST: api/b2b/registerPersonal
