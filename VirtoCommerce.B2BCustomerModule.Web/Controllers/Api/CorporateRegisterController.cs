@@ -120,7 +120,8 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
             var company = _memberService.GetByIds(new[] { member.Organizations.First() }).Cast<Company>().First();
             return Ok(new CompanyMemberRegistrationByInviteData
             {
-                CompanyName = company?.Name,
+                CompanyId = company.Id,
+                CompanyName = company.Name,
                 Email = member.Emails.First()
             });
         }
