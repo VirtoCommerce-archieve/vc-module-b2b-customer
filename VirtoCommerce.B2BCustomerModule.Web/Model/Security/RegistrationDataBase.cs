@@ -51,6 +51,8 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Model.Security
             companyMember.IsActive = IsActive;
             companyMember.Title = Title;
             companyMember.Emails = new[] { Email };
+            Address.FirstName = FirstName;
+            Address.LastName = LastName;
             companyMember.Addresses = new[] { Address };
             companyMember.Phones = new[] { Address.Phone };
             return companyMember;
