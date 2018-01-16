@@ -111,6 +111,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="VirtoCommerce.B2BCustomerModule.Data.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711221354359_PreInitial.resx">
