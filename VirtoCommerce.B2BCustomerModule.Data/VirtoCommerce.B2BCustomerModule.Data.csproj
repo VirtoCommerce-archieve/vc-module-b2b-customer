@@ -84,10 +84,6 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Migrations\201711221354359_PreInitial.cs" />
-    <Compile Include="Migrations\201711221354359_PreInitial.Designer.cs">
-      <DependentUpon>201711221354359_PreInitial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201711221355179_Initial.cs" />
     <Compile Include="Migrations\201711221355179_Initial.Designer.cs">
       <DependentUpon>201711221355179_Initial.cs</DependentUpon>
@@ -101,6 +97,7 @@
     <Compile Include="Repositories\CorporateMembersRepository.cs" />
     <Compile Include="Repositories\ICorporateMembersRepository.cs" />
     <Compile Include="Services\CorporateMembersServiceImpl.cs" />
+    <Compile Include="Services\MemberSearchServiceDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VirtoCommerce.B2BCustomerModule.Core\VirtoCommerce.B2BCustomerModule.Core.csproj">
@@ -114,9 +111,6 @@
     <None Include="VirtoCommerce.B2BCustomerModule.Data.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711221354359_PreInitial.resx">
-      <DependentUpon>201711221354359_PreInitial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711221355179_Initial.resx">
       <DependentUpon>201711221355179_Initial.cs</DependentUpon>
     </EmbeddedResource>

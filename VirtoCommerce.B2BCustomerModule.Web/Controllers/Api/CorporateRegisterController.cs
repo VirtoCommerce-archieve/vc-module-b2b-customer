@@ -122,7 +122,10 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
             {
                 CompanyId = company.Id,
                 CompanyName = company.Name,
-                Email = member.Emails.First()
+                Email = member.Emails.First(),
+                FirstName = member.FirstName,
+                LastName = member.LastName,
+                Address = member.Addresses.FirstOrDefault()
             });
         }
 

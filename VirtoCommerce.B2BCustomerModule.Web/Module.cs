@@ -58,7 +58,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web
             _container.RegisterInstance<Func<IMemberRepository>>(customerRepositoryFactory);
 
             _container.RegisterType<IMemberService, CorporateMembersServiceImpl>();
-            _container.RegisterType<IMemberSearchService, CorporateMembersServiceImpl>();
+            _container.RegisterType<IMemberSearchService, MemberSearchServiceDecorator>();
 
             // https://www.codeproject.com/Articles/326647/FluentValidation-and-Unity
             // https://stackoverflow.com/questions/25185272/how-can-i-automatically-register-all-my-fluent-validators-with-unity
@@ -72,15 +72,17 @@ namespace VirtoCommerce.B2BCustomerModule.Web
         public override void PostInitialize()
         {
             AbstractTypeFactory<Member>.OverrideType<Organization, Company>().MapToType<CompanyDataEntity>();
+            AbstractTypeFactory<Organization>.OverrideType<Organization, Company>().MapToType<CompanyDataEntity>();
             AbstractTypeFactory<MemberDataEntity>.OverrideType<OrganizationDataEntity, CompanyDataEntity>();
 
             AbstractTypeFactory<Member>.OverrideType<Contact, CompanyMember>().MapToType<CompanyMemberDataEntity>();
+            AbstractTypeFactory<Contact>.OverrideType<Contact, CompanyMember>().MapToType<CompanyMemberDataEntity>();
             AbstractTypeFactory<MemberDataEntity>.OverrideType<ContactDataEntity, CompanyMemberDataEntity>();
 
             AbstractTypeFactory<Member>.RegisterType<Department>().MapToType<DepartmentDataEntity>();
             AbstractTypeFactory<MemberDataEntity>.RegisterType<DepartmentDataEntity>();
 
-            AbstractTypeFactory<MembersSearchCriteria>.RegisterType<CorporateMembersSearchCriteria>();
+            AbstractTypeFactory<MembersSearchCriteria>.OverrideType<MembersSearchCriteria, CorporateMembersSearchCriteria>();
 
             base.PostInitialize();
 
