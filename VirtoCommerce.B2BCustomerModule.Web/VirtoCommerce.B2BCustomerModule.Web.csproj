@@ -155,6 +155,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Controllers\Api\CorporateControllerBase.cs" />
+    <Compile Include="Controllers\Api\CorporateMembersController.cs" />
     <Compile Include="Controllers\Api\CorporateRegisterController.cs" />
     <Compile Include="Extensions\ValidationExtensions.cs" />
     <Compile Include="Model\Notifications\CorporateInviteEmailNotification.cs" />
