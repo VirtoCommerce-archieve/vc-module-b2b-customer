@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
+using FluentValidation;
 using VirtoCommerce.B2BCustomerModule.Core;
 using VirtoCommerce.B2BCustomerModule.Core.Model;
 using VirtoCommerce.B2BCustomerModule.Core.Model.Search;
 using VirtoCommerce.B2BCustomerModule.Core.Resources;
+using VirtoCommerce.B2BCustomerModule.Web.Model.Extensions;
 using VirtoCommerce.B2BCustomerModule.Web.Security;
 using VirtoCommerce.Domain.Commerce.Model.Search;
 using VirtoCommerce.Domain.Customer.Model;
@@ -125,7 +127,16 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
             // Request company member by id to prevent security violation when someone can pass wrong security account to company member model
             var requestedCompanyMember = _memberService.GetByIds(new[] { companyMember.Id }).Cast<CompanyMember>().FirstOrDefault();
             CheckCurrentUserHasPermissionForCompanyMember(requestedCompanyMember?.SecurityAccounts.Select(x => x.UserName));
-            _memberService.SaveChanges(new[] { companyMember });
+
+            try
+            {
+                _memberService.SaveChanges(new[] { companyMember });
+            }
+            catch (ValidationException exception)
+            {
+                return BadRequest(exception.Errors.BuildModelState());
+            }
+
             return StatusCode(HttpStatusCode.NoContent);
         }
 
