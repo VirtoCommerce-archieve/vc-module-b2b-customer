@@ -12,7 +12,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Model.Security
         public override CompanyMember ToCompanyMember(CompanyMember companyMember, string memberId)
         {
             var retVal = base.ToCompanyMember(companyMember, memberId);
-            retVal.IsActive = false;
+            retVal.IsActive = true;
             return retVal;
         }
     }

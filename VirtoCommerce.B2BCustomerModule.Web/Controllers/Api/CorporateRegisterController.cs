@@ -9,7 +9,6 @@ using System.Web.Http.Description;
 using FluentValidation;
 using VirtoCommerce.B2BCustomerModule.Core;
 using VirtoCommerce.B2BCustomerModule.Core.Model;
-using VirtoCommerce.B2BCustomerModule.Core.Model.Security;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Extensions;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Notifications;
 using VirtoCommerce.B2BCustomerModule.Web.Model.Security;
@@ -176,7 +175,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web.Controllers.Api
                     FullName = email,
                     Emails = new[] { email },
                     Organizations = new[] { inviteData.CompanyId },
-                    IsActive = false
+                    IsActive = true
                 }).ToArray();
                 _memberService.SaveChanges(companyMembers.Cast<Member>().ToArray());
 

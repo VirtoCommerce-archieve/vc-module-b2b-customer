@@ -63,7 +63,7 @@ namespace VirtoCommerce.B2BCustomerModule.Web
             // https://www.codeproject.com/Articles/326647/FluentValidation-and-Unity
             // https://stackoverflow.com/questions/25185272/how-can-i-automatically-register-all-my-fluent-validators-with-unity
             _container.RegisterType<IValidatorFactory, ValidatorFactory>(new ContainerControlledLifetimeManager());
-            var validators = AssemblyScanner.FindValidatorsInAssemblyContaining<InviteValidator>();
+            var validators = AssemblyScanner.FindValidatorsInAssemblyContaining<CompanyMemberValidator>();
             validators.ForEach(validator => _container.RegisterType(validator.InterfaceType, validator.ValidatorType, new ContainerControlledLifetimeManager()));
             validators = AssemblyScanner.FindValidatorsInAssemblyContaining<CompanyOwnerRegistrationData>();
             validators.ForEach(validator => _container.RegisterType(validator.InterfaceType, validator.ValidatorType, new ContainerControlledLifetimeManager()));

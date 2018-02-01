@@ -162,6 +162,7 @@
     <Compile Include="Model\Security\CompanyMemberRegistrationByInviteData.cs" />
     <Compile Include="Model\Security\CompanyMemberRegistrationData.cs" />
     <Compile Include="Model\Security\CompanyMemberRegistrationDataBase.cs" />
+    <Compile Include="Model\Security\Invite.cs" />
     <Compile Include="Model\Security\PersonalCustomerRegistrationData.cs" />
     <Compile Include="Model\Security\CompanyOwnerRegistrationData.cs" />
     <Compile Include="Model\Security\InviteData.cs" />
@@ -172,6 +173,7 @@
     <Compile Include="Services\Validation\CompanyMemberRegistrationByInviteDataValidator.cs" />
     <Compile Include="Services\Validation\CompanyMemberRegistrationDataBaseValidator.cs" />
     <Compile Include="Services\Validation\CompanyMemberRegistrationDataValidator.cs" />
+    <Compile Include="Services\Validation\InviteValidator.cs" />
     <Compile Include="Services\Validation\PersonalCustomerRegistrationDataValidator.cs" />
     <Compile Include="Services\Validation\CompanyOwnerRegistrationDataValidator.cs" />
     <Compile Include="Services\Validation\InviteDataValidator.cs" />

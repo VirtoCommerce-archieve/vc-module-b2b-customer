@@ -157,6 +157,9 @@ If you have any questions, please contact your company's account administrator, 
   <data name="InviteEmailNotificationSubject" xml:space="preserve">
     <value>Invitation to join {{company_name}}.</value>
   </data>
+  <data name="InviteInactive" xml:space="preserve">
+    <value>Your account is deactivated. Contact your company administrator for details.</value>
+  </data>
   <data name="ProductEmailNotificationBody" xml:space="preserve">
     <value>You selected &lt;a href={{ product_url }}&gt;{{ product.name }}&lt;a/&gt;  from {{ store_name}} to send to this email.</value>
   </data>

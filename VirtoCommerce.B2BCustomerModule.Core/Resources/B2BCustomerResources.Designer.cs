@@ -173,6 +173,15 @@ namespace VirtoCommerce.B2BCustomerModule.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account is deactivated. Contact your company administrator for details..
+        /// </summary>
+        public static string InviteInactive {
+            get {
+                return ResourceManager.GetString("InviteInactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You selected &lt;a href={{ product_url }}&gt;{{ product.name }}&lt;a/&gt;  from {{ store_name}} to send to this email..
         /// </summary>
         public static string ProductEmailNotificationBody {
