@@ -28,8 +28,9 @@ namespace VirtoCommerce.B2BCustomerModule.Data.Services
         [CLSCompliant(false)]
         public CorporateMembersServiceImpl(Func<ICorporateMembersRepository> repositoryFactory, ICommerceService commerceService,
             IDynamicPropertyService dynamicPropertyService, ISecurityService securityService,
-            IEventPublisher<MemberChangingEvent> eventPublisher, IValidatorFactory validatorFactory)
-            : base((Func<ICustomerRepository>)repositoryFactory, dynamicPropertyService, commerceService, securityService, eventPublisher)
+            IEventPublisher<MemberChangingEvent> memberChangingEventPublisher, IEventPublisher<MemberChangedEvent> memberChangedEventPublisher,
+            IValidatorFactory validatorFactory)
+            : base((Func<ICustomerRepository>)repositoryFactory, dynamicPropertyService, commerceService, securityService, memberChangingEventPublisher, memberChangedEventPublisher)
         {
             _securityService = securityService;
             _companyMemberValidator = new Lazy<IValidator<CompanyMember>>(validatorFactory.GetValidator<CompanyMember>);
