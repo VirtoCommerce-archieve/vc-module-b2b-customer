@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201711221355179_Initial.Designer.cs">
       <DependentUpon>201711221355179_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803200647435_ChangeTypePhotoForContact.cs" />
+    <Compile Include="Migrations\201803200647435_ChangeTypePhotoForContact.Designer.cs">
+      <DependentUpon>201803200647435_ChangeTypePhotoForContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\CompanyDataEntity.cs" />
     <Compile Include="Model\CompanyMemberDataEntity.cs" />
@@ -113,6 +117,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711221355179_Initial.resx">
       <DependentUpon>201711221355179_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803200647435_ChangeTypePhotoForContact.resx">
+      <DependentUpon>201803200647435_ChangeTypePhotoForContact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
