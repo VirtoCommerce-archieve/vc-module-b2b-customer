@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <module>
     <id>VirtoCommerce.B2BCustomer</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <platformVersion>2.13.19</platformVersion>
     <dependencies>
-        <dependency id="VirtoCommerce.Core" version="2.24.1" />
-        <dependency id="VirtoCommerce.Customer" version="2.14.1" />
+        <dependency id="VirtoCommerce.Core" version="2.24.30" />
+        <dependency id="VirtoCommerce.Customer" version="2.14.13" />
     </dependencies>
 
     <title>B2B Customer module (preview)</title>
